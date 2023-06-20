@@ -7,33 +7,33 @@
 
 
 
-1. [Introduction](#introduction)
-   1.1 	[Terminology](#terminology)
+1. [Introduction](#1-introduction)
+   1.1 	[Terminology](#11-terminology)
 
-2. [Naming Conventions](#naming-conventions)
-   2.1 [Rules Common to all Identifiers](#rules-common-to-all-identifiers)
-   2.2 [Rules by Identifier Type](#rules-by-identifier-type)
+2. [Naming Conventions](#2-naming-conventions)
+   2.1 [Rules Common to all Identifiers](#21-rules-common-to-all-identifiers)
+   2.2 [Rules by Identifier Type](#22-rules-by-identifier-type)
 
-3. [Project Structure](#project-structure)
-   3.1 [Project File Hierarchy](#project-file-hierarchy)
-   3.2 [3rd Party Libraries/JSON Files](#3rd-party-librariesjson-files)
-4. [RobotContainer](#robotcontainer)
-   4.1 [RobotContainer Fields](#robotcontainer-fields)
-   4.2 [RobotContainer Constructor](#robotcontainer-constructor)
-   4.3 [RobotContainer Methods](#robotcontainer-methods)
-5. [Subsystems](#subsystems)
-   5.1 [Subsystem Fields](#subsystem-fields)
-   5.2 [Subsystem Constructor](#subsystem-constructor)
-   5.3 [Subsystem Methods](#subsystem-methods)
-6. [Commands](#commands)
-   6.1 [Command Fields](#command-fields)
-   6.2 [Command Constructor](#command-constructor)
-   6.3 [Command Methods](#command-methods)
-   6.4 [Command Factories](#command-factories)
-7. [Constants](#constants)
-8. [JavaDocs](#javadocs)
-   8.1 [Block Tags](#block-tags)
-   8.2 [Annotations](#annotations)
+3. [Project Structure](#3-project-structure)
+   3.1 [Project File Hierarchy](#31-project-file-hierarchy)
+   3.2 [3rd Party Libraries/JSON Files](#32-3rd-party-librariesjson-files)
+4. [RobotContainer](#4-robotcontainer)
+   4.1 [RobotContainer Fields](#41-robotcontainer-fields)
+   4.2 [RobotContainer Constructor](#42-robotcontainer-constructor)
+   4.3 [RobotContainer Methods](#43-robotcontainer-methods)
+5. [Subsystems](#5-subsystems)
+   5.1 [Subsystem Fields](#51-subsystem-fields)
+   5.2 [Subsystem Constructor](#52-subsystem-constructor)
+   5.3 [Subsystem Methods](#53-subsystem-methods)
+6. [Commands](#6-commands)
+   6.1 [Command Fields](#61-command-fields)
+   6.2 [Command Constructor](#62-command-constructor)
+   6.3 [Command Methods](#63-command-methods)
+   6.4 [Command Factories](#64-command-factories)
+7. [Constants](#7-constants)
+8. [JavaDocs](#8-javadocs)
+   8.1 [Block Tags](#81-block-tags)
+   8.2 [Annotations](#82-annotations)
 
 
 ## **1. Introduction**
@@ -174,7 +174,7 @@ This section describes the structure of Subsystem classes.
 
 All subsystem fields should be declared as `private`.
 
-It is preferable to leave fields uninitialized and to initialize them inside of the constructor.
+It is preferable to leave fields uninitialized and to initialize them inside the constructor.
 
 Generally, only fields required for the `periodic` method of the subsystem or fields which are required by many commands should be there, otherwise, they should exist inside commands.
 
@@ -211,7 +211,7 @@ Finally, the main telemetry method should be called at the end of the periodic m
 
 ### **6.1 Command Fields**
 
-Generally, most of the data a command needs to work will be stored in a subsystem’s fields, so a command would only require fields that the subsystem doesn’t need for its periodic method.
+Generally, most of the data a command needs to work will be stored in a subsystem’s fields, so a command would only require fields that the subsystem doesn't need for its periodic method.
 
 
 ### **6.2 Command Constructor**
@@ -223,14 +223,14 @@ The command constructor should initialize any fields required by the command. Do
 
 This method should be at the end of every command constructor, regardless of if the number of parameters is zero.
 
-If, during the operation of a command, you don’t want any other command running on a subsystem, then you can call `addRequirements(&lt;subsystem a>, &lt;subsystem b>...)` on those subsystems. For example, you wouldn’t want two automatic paths on your drive base running at the same time, so you would probably add your drive base subsystem as a requirement.
+If, during the operation of a command, you don’t want any other command running on a subsystem, then you can call `addRequirements(&lt;subsystem a>, &lt;subsystem b>...)` on those subsystems. For example, you wouldn't want two automatic paths on your drive base running at the same time, so you would probably add your drive base subsystem as a requirement.
 
 
 ### **6.3 Command Methods**
 
 The command class has many special methods recognized by WPIlib which allows it to affect the robot. When a command is invoked it is handled by the `Command Scheduler`, which has its methods and tools to invoke commands.
 
-It is preferable to keep user methods outside of command classes and inside the subsystems they affect unless these methods require multiple subsystems.
+It is preferable to keep user methods outside command classes and inside the subsystems they affect unless these methods require multiple subsystems.
 
 
 #### **6.3.1 Initialize Method**
@@ -297,7 +297,7 @@ public class Constants {
 
 ## 8. **JavaDocs**
 
-At the minimum, `Javadoc` is present for every public class, and every public or protected member of such a class with the exception of objectively self explanatory members.
+At the minimum, `Javadoc` is present for every public class, and every public or protected member of such a class except objectively self-explanatory members.
 
 
 ### **8.1 Block Tags**
