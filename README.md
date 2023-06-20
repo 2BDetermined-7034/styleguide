@@ -139,7 +139,7 @@ In this example, the PathPlanner library uses a custom <code>.path<strong> </str
 
 This class is where all singleton subsystems, commands, and controllers are created.
 
-**Terminology Note: **
+**Terminology Note:**
 
 > 1. The `Subsystem` class is located within the src.main.frc.robot.subsystem directory and is tasked with the responsibility of configuring and readying the subsystem for utilization within commands.
 > 2. The `Command` class can be found within the src.main.frc.robot.command directory assumes the responsibility of receiving input from the subsystem class and performing an action, such as propelling the robot forward or operating a motor in a specific direction.
