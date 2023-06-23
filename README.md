@@ -212,21 +212,11 @@ first after the constructor.
 
 #### **5.3.1 Periodic Method**
 
-The `periodic` method is a special method that the robot will execute for every `subsystem` approximately every 0.02
-seconds. While it is frequently possible to forgo the use of commands and exclusively use the periodic method in many
-cases, it is strongly recommended to use commands for anything remotely more complicated.
-
-Usage of this method most frequently involves updating voltage values for motors based on controller inputs or encoder
-readings.
-
-Finally, the main telemetry method should be called at the end of the periodic method. In our 2023 robot, this was
+The main telemetry method should be called at the end of the periodic method. In our 2023 robot, this was
 called `updateLogging` in all of our subsystems, and it relayed important data about that subsystem to the driver
 station.
 
 ## **6. Commands**
-
-`Commands` represent actions that the robot can take. Generally, commands will either operate on at least one subsystem
-or through chaining multiple commands of the former kind together.
 
 ### **6.1 Command Fields**
 
@@ -252,28 +242,12 @@ requirement.
 The command class has many special methods recognized by WPIlib which allows it to affect the robot. When a command is
 invoked it is handled by the `Command Scheduler`, which has its methods and tools to invoke commands.
 
-It is preferable to keep user methods outside command classes and inside the subsystems they affect unless these methods
-require multiple subsystems.
+It is preferable to keep user methods outside command classes and inside the subsystems whenever possible. 
 
 #### **6.3.1 Initialize Method**
 
 This method is called when the command is initially scheduled. This is where all initial modifications to subsystems
 should happen, not in the constructor.
-
-#### **6.3.2 Execute Method**
-
-This method is called by the command scheduler while the command is scheduled, and should be treated identically to the
-periodic method of a subsystem. The difference is that this way you have a greater amount of control over when the
-method is run.
-
-#### **6.3.3 End and isFinished Methods**
-
-The `end` method of a command is called once when the command ends properly or is interrupted. This usually means
-resetting subsystems back to their original states if necessary.
-
-The `isFinished` method returns true when the command should end. For commands that never end, this should return false,
-and for commands that want to reach a certain goal, this should return true once that goal is reached. For example, An
-AutoBalance drive command would return true once the gyroscope returned a specific angle
 
 ### **6.4 Command Factories**
 
