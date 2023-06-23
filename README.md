@@ -64,10 +64,10 @@ In this document, unless otherwise clarified:
 
 
 
-1. A `singleton` can be defined as a class that unambiguously allows only a single instance to exist. As such, it is impossible to create more than one object of a class at any given point in time.
-2. The employment of the `class` concept affords a meticulously structured and precise framework for generating objects, delineating their intrinsic attributes and functionalities.
-3. To `mutate` a variable once it has been defined means to alter its value.
-4. `Telemetry` refers to the gathering of measurements or other data through sensors on the robot, which are then transmitted to the driver station for viewing purposes. This process is commonly referred to as logging.
+[//]: # (1. A `singleton` can be defined as a class that unambiguously allows only a single instance to exist. As such, it is impossible to create more than one object of a class at any given point in time.)
+1. The employment of the `class` concept affords a meticulously structured and precise framework for generating objects, delineating their intrinsic attributes and functionalities.
+2. To `mutate` a variable once it has been defined means to alter its value.
+3. `Telemetry` refers to the gathering of measurements or other data through sensors on the robot, which are then transmitted to the driver station for viewing purposes. This process is commonly referred to as logging.
 
 More _Terminology Notes_ will appear frequently throughout the document.
 
@@ -139,11 +139,14 @@ In this example, the PathPlanner library uses a custom <code>.path</code> extens
 
 This class is where all singleton subsystems, commands, and controllers are created.
 
-**Terminology Note:**
+[//]: # (**Terminology Note:**)
 
-> 1. The `Subsystem` class is located within the src.main.frc.robot.subsystem directory and is tasked with the responsibility of configuring and readying the subsystem for utilization within commands.
-> 2. The `Command` class can be found within the src.main.frc.robot.command directory assumes the responsibility of receiving input from the subsystem class and performing an action, such as propelling the robot forward or operating a motor in a specific direction.
+[//]: # ()
+[//]: # (> 1. The `Subsystem` class is located within the src.main.frc.robot.subsystem directory and is tasked with the responsibility of configuring and readying the subsystem for utilization within commands.)
 
+[//]: # (> 2. The `Command` class can be found within the src.main.frc.robot.command directory assumes the responsibility of receiving input from the subsystem class and performing an action, such as propelling the robot forward or operating a motor in a specific direction.)
+
+[//]: # ()
 
 ### **4.1 RobotContainer Fields**
 
@@ -293,8 +296,6 @@ Here is a method from inside our `AutoFactory`, which describes a sequence of cl
 ## **7. Constants**
 
 The `Constants` class is composed of many internal classes declared as `public static final`, each assigned to a subsystem. Additionally, there may be an internal class for operator constants like controller ports.
-> `public` as an it's accessable anywhere in the file, and `final` so it can't be overwritten
-
 
 ```java
 package frc.robot;
